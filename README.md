@@ -58,10 +58,10 @@ Las contribuciones son bienvenidas. Si deseas mejorar este proyecto, por favor s
 
 # Colaboradores
 
-Carlota Benedetta
-Carlos Cue
-Francisco Bejarano
-Maria del Carmen Molina
+- Carlota Benedetta
+- Carlos Cue
+- Francisco Bejarano
+- Maria del Carmen Molina
 
 ## Contacto
 
