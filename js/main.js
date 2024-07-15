@@ -4,6 +4,12 @@
 
 // todo Generar código RGB aleatorio
 //* Crear una función para generar un código de color RGB aleatorio
+function makeRandomColor() {
+  const r = Math.floor(Math.random() * 256);
+  const g = Math.floor(Math.random() * 256);
+  const b = Math.floor(Math.random() * 256);
+  return `rgb(${r},${g},${b})`;
+}
 
 // todo Generar cajas de color
 //*  Crear una función para generar varias cajas de color, una de ellas con el color correcto y las otras con colores aleatorios
