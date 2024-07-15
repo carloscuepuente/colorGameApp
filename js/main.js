@@ -28,3 +28,8 @@ function makeRandomColor() {
 // *
 
 // todo Implementar las condiciones de victoria o derrota
+
+/* DUDAS TUTORIA:
+- Funcionalidades extra, como lo de desaparecer cuadrado
+- dificultad
+- Si el proyecto nos dice que cada vez que clickemos un cuadrado , si hay acierto o fallo los cuadrados deben generarse nuevos */

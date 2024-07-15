@@ -1,5 +1,47 @@
-body {
+*{
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
+
+h1{
+  font-size: 1.5rem;
+  text-align: center;
+}
+
+#pantallaJuego{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 15vh;
+} 
+
+#pantallaColores{
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 10px;
+  height: 75vh;
+}
+
+/* intentar hacerlo con grid-templete */
+.cuadrado{
+  /* height: 30%;
+  width: 40%;
+  background-color: violet;
+  border: 2px solid black; */
+  width: 30%;
+  background-color: blue;
+  padding-bottom: 30%;
+  float: left;
+  border-radius: 15%;
+}
+
+footer{
+  font-size: 0.5rem;
+  text-align: center;
+}
+
+
