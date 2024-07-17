@@ -17,6 +17,17 @@ header {
   text-align: center; /* Alineación centrada del contenido del header */
 }
 
+form {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+select {
+  /* margin: 5px 10px; */
+  width: 20%;
+}
+
 h1 {
   font-size: 2rem;
   margin-bottom: 10px; /* Menos espacio debajo del título */
