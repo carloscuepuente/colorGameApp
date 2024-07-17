@@ -1,47 +1,83 @@
-*{
+* {
   padding: 0;
   margin: 0;
   box-sizing: border-box;
 }
 
-h1{
-  font-size: 1.5rem;
-  text-align: center;
+body {
+  font-family: 'Comic Sans MS', cursive, sans-serif; /* Cambiado a una fuente más kawaii */
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+  background-color: #FFFACD; /* Fondo amarillo pastel */
 }
 
-#pantallaJuego{
+header {
+  margin: 10px 0; /* Ajuste de margen para el header */
+  text-align: center; /* Alineación centrada del contenido del header */
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 10px; /* Menos espacio debajo del título */
+  color: #5F9EA0; /* Color menta para el texto del título */
+}
+
+.kawaii-character {
+  display: block;
+  margin: 5px auto; /* Ajuste de margen para centrar horizontalmente */
+  width: 150px; 
+  height: auto;
+}
+
+#pantallaJuego {
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  height: 15vh;
-} 
+  height: 20vh;
+}
 
-#pantallaColores{
+#pantallaJuego article {
+  margin: 5px 0;
+  font-size: 1.2rem;
+  color: #5F9EA0; /* Color menta para los textos */
+}
+
+#rgb {
+  background-color: #f0f0f0;
+  border: 2px solid #000;
+  border-radius: 5px;
+  padding: 10px 20px;
+  display: inline-block;
+  font-weight: bold;
+  margin-top: 2px; /* Menos espacio arriba del elemento rgb */
+}
+
+#pantallaColores {
   display: flex;
   flex-direction: row;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
-  height: 75vh;
+  gap: 15px;
+  flex: 1;  
+  margin: 20px 0;
 }
 
-/* intentar hacerlo con grid-templete */
-.cuadrado{
-  /* height: 30%;
-  width: 40%;
-  background-color: violet;
-  border: 2px solid black; */
-  width: 30%;
-  background-color: blue;
-  padding-bottom: 30%;
+.cuadrado {
+  width: 25%;
+  background-color: #ADD8E6; /* Color azul claro para los cuadrados */
+  padding-bottom: 25%;
   float: left;
   border-radius: 15%;
+  border: 2px solid #5F9EA0; /* Borde menta */
 }
 
-footer{
-  font-size: 0.5rem;
+footer {
+  font-size: 0.8rem;
   text-align: center;
+  margin: 20px 0;
+  color: #5F9EA0; /* Color menta para el texto del footer */
 }
 
 

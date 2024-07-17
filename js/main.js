@@ -19,6 +19,44 @@ const makeAPalleteOfRandomColor = (color) => {
   return `rgb(${r},${g},${b})`;
 };
 
+document.addEventListener('DOMContentLoaded', function() {
+  const rgbElement = document.getElementById('rgb');
+  const aciertosElement = document.getElementById('aciertos');
+  const fallosElement = document.getElementById('fallos');
+  let colorObjetivo; // Variable para almacenar el color objetivo
+
+    //Actualizo el color RGB mostrado, genero un nuevo color aleatorio.
+function actualizarColorRGB() {
+  colorObjetivo = makeRandomColor();
+  rgbElement.textContent = `rgb ${colorObjetivo}`;
+}
+
+//Función para verificar si el color del cuadrado coincide con el objetivo cuando el usuario hace click
+function verificarColor(cuadrado) {
+  const colorCuadrado = cuadrado.style.backgroundColor; //si el color es correcto se contabiliza en el contador de aciertos
+  if (colorCuadrado === colorObjetivo) {
+    // Acierto
+    aciertosElement.textContent = parseInt(aciertosElement.textContent) + 1;
+  } else {
+    // Fallo
+    fallosElement.textContent = parseInt(fallosElement.textContent) + 1;
+  }
+  // Mostrar nuevo color después de verificar
+  actualizarColorRGB();
+}
+
+ // Asignar evento de clic a cada cuadrado
+ const cuadrados = document.querySelectorAll('.cuadrado');
+ cuadrados.forEach(function(cuadrado) {
+   cuadrado.addEventListener('click', function() {
+     verificarColor(cuadrado);
+   });
+ });
+
+   // Mostrar el primer color RGB al cargar la página
+actualizarColorRGB();
+});
+
 // todo Generar cajas de color
 //*  Crear una función para generar varias cajas de color, una de ellas con el color correcto y las otras con colores aleatorios
 
