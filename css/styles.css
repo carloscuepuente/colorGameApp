@@ -44,7 +44,6 @@ h1 {
 #pantallaJuego {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   height: 20vh;
 }
@@ -63,6 +62,15 @@ h1 {
   display: inline-block;
   font-weight: bold;
   margin-top: 2px; /* Menos espacio arriba del elemento rgb */
+  margin-bottom: 10px; /* Espacio debajo del elemento rgb */
+}
+
+/*Añado el estilo a aciertos y fallos y les cambio de posicion*/
+#resultados {  
+  display: flex;
+  justify-content: space-between;
+  width: 100%;
+  padding: 0 300px; /* Espacio a los lados */
 }
 
 #pantallaColores {
