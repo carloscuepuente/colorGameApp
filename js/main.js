@@ -40,6 +40,7 @@ const juegoNuevoDificil = () => {
   // lo ponemos en el texto del html
   rgbElement.textContent = `${colorObjetivo}`;
   // console.log(colorObjetivo.toUpperCase());
+
   // le cambiamos el color de fondo al elemento html del elemento
   // rgbElement.style.backgroundColor = colorObjetivo;
 
@@ -84,7 +85,7 @@ const juegoNuevoFacil = () => {
     if (cuadrado.dataset.color) {
       cuadrado.style.backgroundColor = colorObjetivo;
     } else {
-      console.log("corri");
+      // console.log("corri");
       cuadrado.style.backgroundColor = makeAPalleteOfRandomColor(colorObjetivo);
       // cuadrado.style.backgroundColor = makeRandomColor();
     }
