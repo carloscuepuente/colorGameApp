@@ -12,22 +12,95 @@ const makeRandomColor = () => {
 };
 
 const makeAPalleteOfRandomColor = (color) => {
-  const r = Math.floor(Math.random() * 256);
-  const g = Math.floor(Math.random() * 256);
-  const b = Math.floor(Math.random() * 256);
+  // color es un string tal que `rgb(r,g,b)`
+  // usamos metodos de sting con regex para encontrar los valores del
+  // r, g y b
+  const match = color.match(/^rgb\((\d+),(\d+),(\d+)\)$/);
+  // el metodo match retorna todos los elementos del array que cumplan la condicon del regex
+
+  // todo esto aun no verifica si el color se pasa de 255 o es menor a 0
+  // bueno de hecho solo se lo suma no hago resta
+  const r = parseInt(match[1]) + Math.floor(Math.random() * 75);
+  const g = parseInt(match[2]) + Math.floor(Math.random() * 75);
+  const b = parseInt(match[3]) + Math.floor(Math.random() * 75);
 
   return `rgb(${r},${g},${b})`;
 };
 
-document.addEventListener('DOMContentLoaded', function() {
-  const rgbElement = document.getElementById('rgb');
-  const aciertosElement = document.getElementById('aciertos');
-  const fallosElement = document.getElementById('fallos');
-  let colorObjetivo; // Variable para almacenar el color objetivo
+//
+const rgbElement = document.getElementById("rgb");
+const aciertosElement = document.getElementById("aciertos");
+const fallosElement = document.getElementById("fallos");
+const cuadrados = document.querySelectorAll(".cuadrado");
 
-    //Actualizo el color RGB mostrado, genero un nuevo color aleatorio.
+const juegoNuevoDificil = () => {
+  // creamos el color objetivo que queremos adivinar
+  let colorObjetivo = makeRandomColor();
+
+  // lo ponemos en el texto del html
+  rgbElement.textContent = colorObjetivo.toUpperCase();
+  console.log(colorObjetivo.toUpperCase());
+  // le cambiamos el color de fondo al elemento html del elemento
+  // rgbElement.style.backgroundColor = colorObjetivo;
+
+  // a los cuadrados le vamos a asignar a uno el color correcto y al resto colores generados por la función de crear una paleta de colores parecida
+  let cuadradoCorrecto =
+    cuadrados[Math.floor(Math.random() * cuadrados.length)];
+
+  cuadradoCorrecto.dataset.color = colorObjetivo;
+
+  for (const cuadrado of cuadrados) {
+    if (cuadrado.dataset.color) {
+      cuadrado.style.backgroundColor = colorObjetivo;
+    } else {
+      // console.log("corri");
+      // cuadrado.style.backgroundColor = makeAPalleteOfRandomColor(colorObjetivo);
+      cuadrado.style.backgroundColor = makeRandomColor();
+    }
+  }
+
+  // console.log(Math.floor(Math.random() * cuadrados.length));
+
+  //
+};
+
+const juegoNuevoFacil = () => {
+  // creamos el color objetivo que queremos adivinar
+  let colorObjetivo = makeRandomColor();
+
+  // lo ponemos en el texto del html
+  rgbElement.textContent = `${colorObjetivo.toUpperCase()}`;
+  // le cambiamos el color de fondo al elemento html del elemento
+  // rgbElement.style.backgroundColor = colorObjetivo;
+  // document.querySelector("body").style.backgroundColor = colorObjetivo;
+
+  // a los cuadrados le vamos a asignar a uno el color correcto y al resto colores generados por la función de crear una paleta de colores parecida
+  let cuadradoCorrecto =
+    cuadrados[Math.floor(Math.random() * cuadrados.length)];
+
+  cuadradoCorrecto.dataset.color = colorObjetivo;
+
+  for (const cuadrado of cuadrados) {
+    if (cuadrado.dataset.color) {
+      cuadrado.style.backgroundColor = colorObjetivo;
+    } else {
+      console.log("corri");
+      cuadrado.style.backgroundColor = makeAPalleteOfRandomColor(colorObjetivo);
+      // cuadrado.style.backgroundColor = makeRandomColor();
+    }
+  }
+
+  // console.log(Math.floor(Math.random() * cuadrados.length));
+
+  //
+};
+
+// juegoNuevoFacil();
+juegoNuevoDificil();
+
+//Actualizo el color RGB mostrado, genero un nuevo color aleatorio.
 function actualizarColorRGB() {
-  colorObjetivo = makeRandomColor();
+  let colorObjetivo = makeRandomColor();
   rgbElement.textContent = `rgb ${colorObjetivo}`;
 }
 
@@ -45,17 +118,16 @@ function verificarColor(cuadrado) {
   actualizarColorRGB();
 }
 
- // Asignar evento de clic a cada cuadrado
- const cuadrados = document.querySelectorAll('.cuadrado');
- cuadrados.forEach(function(cuadrado) {
-   cuadrado.addEventListener('click', function() {
-     verificarColor(cuadrado);
-   });
- });
+// Asignar evento de clic a cada cuadrado
 
-   // Mostrar el primer color RGB al cargar la página
-actualizarColorRGB();
+cuadrados.forEach(function (cuadrado) {
+  cuadrado.addEventListener("click", function () {
+    verificarColor(cuadrado);
+  });
 });
+
+// Mostrar el primer color RGB al cargar la página
+actualizarColorRGB();
 
 // todo Generar cajas de color
 //*  Crear una función para generar varias cajas de color, una de ellas con el color correcto y las otras con colores aleatorios
