@@ -27,15 +27,26 @@ const makeAPalleteOfRandomColor = (color) => {
   return `rgb(${r},${g},${b})`;
 };
 
-//
+// * selectores de elementos del HTML
 const rgbElement = document.getElementById("rgb");
 const aciertosElement = document.getElementById("aciertos");
 const fallosElement = document.getElementById("fallos");
 const cuadrados = document.querySelectorAll(".cuadrado");
-
+const levelSelector = document.getElementById("nivel"); //selecciona le select del html
+// console.log(levelSelector);
+// funciones con la logica de la dificultad del juego
 const juegoNuevoFacil = () => {
+  gameReset();
   // creamos el color objetivo que queremos adivinar
   let colorObjetivo = makeRandomColor();
+  // let colorObjetivo = "rgb(20,20,20)";
+  const [rgb, r, g, b] = colorObjetivo.match(/^rgb\((\d+),(\d+),(\d+)\)$/);
+  if (parseInt(r) + parseInt(g) + parseInt(b) > 100) {
+    console.log(rgbElement.textContent);
+    rgbElement.style.color = "black";
+  } else {
+    rgbElement.style.color = "rgb(240, 241, 245)";
+  }
 
   // lo ponemos en el texto del html
   rgbElement.textContent = `${colorObjetivo.toUpperCase()}`;
@@ -59,7 +70,15 @@ const juegoNuevoFacil = () => {
   }
 };
 
+const handleClickJuegoNuevo = (event) => {
+  // console.log(event.target);
+  if (!event.target.dataset.color) {
+    event.target.style.visibility = "hidden";
+  }
+};
+
 const juegoNuevoMedio = () => {
+  gameReset();
   // creamos el color objetivo que queremos adivinar
   const colorObjetivo = makeRandomColor();
   // lo ponemos en el texto del html
@@ -74,13 +93,20 @@ const juegoNuevoMedio = () => {
 
   cuadradoCorrecto.dataset.color = colorObjetivo;
 
+  // for (const cuadrado of cuadrados) {
+  //   cuadrado.addEventListener(
+  //     "click",
+  //     function () {
+  //       if (cuadrado.dataset.color !== colorObjetivo) {
+  //         // Si no es el color objetivo, desaparece el cuadrado
+  //         cuadrado.style.visibility = "hidden";
+  //       }
+  //     },
+  //     { once: true }
+  //   );
+
   for (const cuadrado of cuadrados) {
-    cuadrado.addEventListener("click", function () {
-      if (cuadrado.dataset.color !== colorObjetivo) {
-        // Si no es el color objetivo, desaparece el cuadrado
-        cuadrado.style.visibility = "hidden";
-      }
-    });
+    cuadrado.addEventListener("click", handleClickJuegoNuevo);
 
     if (cuadrado.dataset.color) {
       cuadrado.style.backgroundColor = colorObjetivo;
@@ -94,12 +120,13 @@ const juegoNuevoMedio = () => {
 };
 
 const juegoNuevoDificil = () => {
+  gameReset();
   // creamos el color objetivo que queremos adivinar
   const colorObjetivo = makeRandomColor();
   console.log("soy el color objetivo", colorObjetivo);
 
   // lo ponemos en el texto del html
-  console.log(rgbElement);
+  // console.log(rgbElement);
   rgbElement.textContent = `${colorObjetivo.toUpperCase()}`;
   // console.log(colorObjetivo.toUpperCase());
 
@@ -124,11 +151,34 @@ const juegoNuevoDificil = () => {
   // console.log(Math.floor(Math.random() * cuadrados.length));
 };
 
-// todo Implementar la variante del dificultad media que consiste en la misma implementación del difícil
-// todo pero agregando la funcionalidad de ir eliminando cuadrados de la "grilla" de opciones si fallamos vamos de los div class cuadrado eliminarlos
-// posible implementación aplicando una clase de css
+// correr el juego según la dificultad seleccionada
+const levelSelect = () => {
+  // console.log("corri");
+  if (levelSelector.value === "facil") {
+    // console.log("corri");
+    juegoNuevoFacil();
+  } else if (levelSelector.value === "medio") {
+    juegoNuevoMedio();
+  } else if (levelSelector.value === "dificil") {
+    juegoNuevoDificil();
+  } else {
+    gameReset();
+  }
+};
 
-const juegoNuevoMedio = () => {};
+const gameReset = () => {
+  // hay que resetear todos los valores del dataset.color y los valores del index del array de cuadrados
+  rgbElement.textContent = `CÓDIGO RGB`;
+  rgbElement.style.backgroundColor = "rgb(173, 216, 230)";
+  for (const cuadrado of cuadrados) {
+    cuadrado.removeAttribute("data-color");
+    cuadrado.style.backgroundColor = makeRandomColor();
+    cuadrado.style.visibility = "visible";
+    cuadrado.removeEventListener("click", handleClickJuegoNuevo);
+  }
+
+  // todo resetear los contadores tambien
+};
 
 //Función para verificar si el color del cuadrado coincide con el objetivo cuando el usuario hace click
 function verificarColor(cuadrado) {
@@ -144,17 +194,13 @@ function verificarColor(cuadrado) {
 
 // Asignar evento de clic a cada cuadrado
 
-cuadrados.forEach(function (cuadrado) {
-  cuadrado.addEventListener("click", function () {
-    verificarColor(cuadrado);
-  });
-});
+// cuadrados.forEach(function (cuadrado) {
+//   cuadrado.addEventListener("click", function () {
+//     verificarColor(cuadrado);
+//   });
+// });
 
 // Mostrar el primer color RGB al cargar la página
-
-// juegoNuevoFacil();
-juegoNuevoMedio();
-// juegoNuevoDificil();
 
 // todo detectar clicks en las cajas
 // * Crear un evento de clic para cada caja para detectar si el usuario ha seleccionado el color correcto o incorrecto
@@ -162,8 +208,6 @@ juegoNuevoMedio();
 // todo Implementar el contador de aciertos y fallos
 // * crear las variables correspondientes y actualizar los contadores en la interfaz de usuario
 // * incrementar el contador si el usuario selecciona el color correcto y decrementar si es incorrecto
-
-// todo Implementar la lógica para el reset del juego luego de cada click
 
 // todo Implementar las condiciones de victoria o derrota
 // todo implementar el modal
