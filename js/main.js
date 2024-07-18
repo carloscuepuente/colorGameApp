@@ -67,8 +67,8 @@ const juegoNuevoDificil = () => {
 
   // lo ponemos en el texto del html
   console.log(rgbElement);
-  rgbElement.textContent = `${colorObjetivo}`;
-  console.log(colorObjetivo.toUpperCase());
+  rgbElement.textContent = `${colorObjetivo.toUpperCase()}`;
+  // console.log(colorObjetivo.toUpperCase());
 
   // le cambiamos el color de fondo al elemento html del elemento
   // rgbElement.style.backgroundColor = colorObjetivo;
@@ -95,9 +95,11 @@ const juegoNuevoDificil = () => {
 // todo pero agregando la funcionalidad de ir eliminando cuadrados de la "grilla" de opciones si fallamos vamos de los div class cuadrado eliminarlos
 // posible implementación aplicando una clase de css
 
+const juegoNuevoMedio = () => {};
+
 //Función para verificar si el color del cuadrado coincide con el objetivo cuando el usuario hace click
 function verificarColor(cuadrado) {
-  const colorCuadrado = cuadrado.style.backgroundColor; //si el color es correcto se contabiliza en el contador de aciertos
+  //si el color es correcto se contabiliza en el contador de aciertos
   if (colorCuadrado === colorObjetivo) {
     // Acierto
     aciertosElement.textContent = parseInt(aciertosElement.textContent) + 1;
@@ -105,8 +107,6 @@ function verificarColor(cuadrado) {
     // Fallo
     fallosElement.textContent = parseInt(fallosElement.textContent) + 1;
   }
-  // Mostrar nuevo color después de verificar
-  // actualizarColorRGB();
 }
 
 // Asignar evento de clic a cada cuadrado
@@ -123,12 +123,6 @@ cuadrados.forEach(function (cuadrado) {
 // juegoNuevoMedio()
 juegoNuevoDificil();
 
-// todo Generar cajas de color
-//*  Crear una función para generar varias cajas de color, una de ellas con el color correcto y las otras con colores aleatorios
-
-// todo Asignar colores a las cajas
-// * asignar los colores generados a las cajas en la sección correspondiente
-
 // todo detectar clicks en las cajas
 // * Crear un evento de clic para cada caja para detectar si el usuario ha seleccionado el color correcto o incorrecto
 
@@ -137,9 +131,9 @@ juegoNuevoDificil();
 // * incrementar el contador si el usuario selecciona el color correcto y decrementar si es incorrecto
 
 // todo Implementar la lógica para el reset del juego luego de cada click
-// *
 
 // todo Implementar las condiciones de victoria o derrota
+// todo implementar el modal
 
 /* DUDAS TUTORIA:
 - Funcionalidades extra, como lo de desaparecer cuadrado
