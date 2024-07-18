@@ -76,6 +76,11 @@ h1 {
   /*padding: 0 300px;*/ /* Espacio a los lados */
 }
 
+#aciertos, #fallos {
+  font-size: 2rem; /* Aumenta el tamaño de la fuente */
+  color: #5f9ea0; /* Mantén el color menta */
+}
+
 #pantallaColores {
   height: 100vh;
   width: 100vw;
