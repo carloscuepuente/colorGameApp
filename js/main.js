@@ -41,7 +41,6 @@ let fallos = 0;
 const juegoNuevoFacil = () => {
   // creamos el color objetivo que queremos adivinar
   let colorObjetivo = makeRandomColor();
-  console.log(colorObjetivo);
 
   // lo ponemos en el texto del html
   rgbElement.textContent = `${colorObjetivo.toUpperCase()}`;
@@ -63,6 +62,40 @@ const juegoNuevoFacil = () => {
       // cuadrado.style.backgroundColor = makeRandomColor();
     }
   }
+};
+
+const juegoNuevoMedio = () => {
+  // creamos el color objetivo que queremos adivinar
+  const colorObjetivo = makeRandomColor();
+  // lo ponemos en el texto del html
+  rgbElement.textContent = `${colorObjetivo.toUpperCase()}`;
+
+  // le cambiamos el color de fondo al elemento html del elemento
+  // rgbElement.style.backgroundColor = colorObjetivo;
+
+  // a los cuadrados le vamos a asignar a uno el color correcto y al resto colores generados por la función de crear una paleta de colores parecida
+  let cuadradoCorrecto =
+    cuadrados[Math.floor(Math.random() * cuadrados.length)];
+
+  cuadradoCorrecto.dataset.color = colorObjetivo;
+
+  for (const cuadrado of cuadrados) {
+    cuadrado.addEventListener("click", function () {
+      if (cuadrado.dataset.color !== colorObjetivo) {
+        // Si no es el color objetivo, desaparece el cuadrado
+        cuadrado.style.visibility = "hidden";
+      }
+    });
+
+    if (cuadrado.dataset.color) {
+      cuadrado.style.backgroundColor = colorObjetivo;
+    } else {
+      // cuadrado.style.backgroundColor = makeAPalleteOfRandomColor(colorObjetivo);
+      cuadrado.style.backgroundColor = makeRandomColor();
+    }
+  }
+
+  // console.log(Math.floor(Math.random() * cuadrados.length));
 };
 
 const juegoNuevoDificil = () => {
@@ -134,8 +167,8 @@ for (const cuadrado of cuadrados) {
 // Mostrar el primer color RGB al cargar la página
 
 // juegoNuevoFacil();
-// juegoNuevoMedio()
-juegoNuevoDificil();
+juegoNuevoMedio();
+// juegoNuevoDificil();
 
 // todo Generar cajas de color
 //*  Crear una función para generar varias cajas de color, una de ellas con el color correcto y las otras con colores aleatorios
