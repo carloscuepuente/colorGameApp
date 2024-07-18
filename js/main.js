@@ -30,8 +30,12 @@ const makeAPalleteOfRandomColor = (color) => {
 // * selectores de elementos del HTML
 const rgbElement = document.getElementById("rgb");
 const aciertosElement = document.getElementById("aciertos");
+console.log(aciertosElement, "Soy la variable aciertosElement");
 const fallosElement = document.getElementById("fallos");
 const cuadrados = document.querySelectorAll(".cuadrado");
+let aciertos = 0;
+let fallos = 0;
+
 const levelSelector = document.getElementById("nivel"); //selecciona le select del html
 // console.log(levelSelector);
 // funciones con la logica de la dificultad del juego
@@ -180,25 +184,37 @@ const gameReset = () => {
   // todo resetear los contadores tambien
 };
 
-//Función para verificar si el color del cuadrado coincide con el objetivo cuando el usuario hace click
-function verificarColor(cuadrado) {
-  //si el color es correcto se contabiliza en el contador de aciertos
-  if (colorCuadrado === colorObjetivo) {
+//Función para verificar si el color del cuadrado coincide con el objetivo cuando el usuario hace click y actualizar el contador
+function actualizarContador(cuadrado) {
+  const colorCuadrado = cuadrado.dataset.color; //color cuadrado correcto
+  if (colorCuadrado) {
+    aciertos += 1;
+    console.log("Soy aciertos", aciertos);
+
+    console.log(aciertosElement, "Soy aciertos antes de cambiar el texto");
+    aciertosElement.textContent = `Aciertos: ${aciertos}`;
+    console.log(aciertosElement, "Soy aciertos despues de cambiar el texto");
+    //comparamos el color de cuadrado  con el color Objetivo (el correcto). Si son iguales el usuario habrá acertado.
     // Acierto
-    aciertosElement.textContent = parseInt(aciertosElement.textContent) + 1;
+    //incrementamos de 1 punto el contador de aciertos
   } else {
-    // Fallo
-    fallosElement.textContent = parseInt(fallosElement.textContent) + 1;
+    fallos += 1;
+    fallosElement.textContent = `Fallos: ${fallos}`;
+    console.log("Soy fallos", fallos);
+    // Fallo, si el color no coincide con el color objetivo
+    // fallosElement.textContent = parseInt(fallosElement.textContent) + 1; //incrementamos de 1 punto el contador de fallos
   }
+  // Mostrar nuevo color después de verificar
+  // actualizarColorRGB();
 }
 
 // Asignar evento de clic a cada cuadrado
 
-// cuadrados.forEach(function (cuadrado) {
-//   cuadrado.addEventListener("click", function () {
-//     verificarColor(cuadrado);
-//   });
-// });
+for (const cuadrado of cuadrados) {
+  cuadrado.addEventListener("click", () => {
+    actualizarContador(cuadrado);
+  });
+}
 
 // Mostrar el primer color RGB al cargar la página
 
