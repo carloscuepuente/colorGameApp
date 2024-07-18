@@ -1,3 +1,4 @@
+
 "use strict";
 
 // bajarse la extension en VsCode Better Comments para que les aparezcan los comentarios de colores
@@ -30,8 +31,12 @@ const makeAPalleteOfRandomColor = (color) => {
 //
 const rgbElement = document.getElementById("rgb");
 const aciertosElement = document.getElementById("aciertos");
+console.log(aciertosElement, "Soy la variable aciertosElement");
 const fallosElement = document.getElementById("fallos");
 const cuadrados = document.querySelectorAll(".cuadrado");
+let aciertos = 0;
+let fallos = 0;
+
 
 const juegoNuevoFacil = () => {
   // creamos el color objetivo que queremos adivinar
@@ -95,27 +100,36 @@ const juegoNuevoDificil = () => {
 // todo pero agregando la funcionalidad de ir eliminando cuadrados de la "grilla" de opciones si fallamos vamos de los div class cuadrado eliminarlos
 // posible implementación aplicando una clase de css
 
-//Función para verificar si el color del cuadrado coincide con el objetivo cuando el usuario hace click
-function verificarColor(cuadrado) {
-  const colorCuadrado = cuadrado.style.backgroundColor; //si el color es correcto se contabiliza en el contador de aciertos
-  if (colorCuadrado === colorObjetivo) {
+//Función para verificar si el color del cuadrado coincide con el objetivo cuando el usuario hace click y actualizar el contador
+function actualizarContador(cuadrado) {  
+  const colorCuadrado = cuadrado.dataset.color; //color cuadrado correcto
+  if (colorCuadrado) { 
+    aciertos += 1;
+    console.log("Soy aciertos", aciertos);
+
+    console.log(aciertosElement, "Soy aciertos antes de cambiar el texto");
+    aciertosElement.textContent = `Aciertos: ${aciertos}`;
+    console.log(aciertosElement, "Soy aciertos despues de cambiar el texto");
+    //comparamos el color de cuadrado  con el color Objetivo (el correcto). Si son iguales el usuario habrá acertado.
     // Acierto
-    aciertosElement.textContent = parseInt(aciertosElement.textContent) + 1;
-  } else {
-    // Fallo
-    fallosElement.textContent = parseInt(fallosElement.textContent) + 1;
+    aciertosElement.textContent = parseInt(aciertosElement.textContent) + 1; //incrementamos de 1 punto el contador de aciertos
+  } else { 
+    fallos += 1;
+    fallosElement.textContent = `Fallos: ${fallos}`;
+    console.log("Soy fallos", fallos);
+    // Fallo, si el color no coincide con el color objetivo
+    // fallosElement.textContent = parseInt(fallosElement.textContent) + 1; //incrementamos de 1 punto el contador de fallos
   }
   // Mostrar nuevo color después de verificar
   // actualizarColorRGB();
 }
 
 // Asignar evento de clic a cada cuadrado
-
-cuadrados.forEach(function (cuadrado) {
-  cuadrado.addEventListener("click", function () {
-    verificarColor(cuadrado);
-  });
-});
+for (const cuadrado of cuadrados) {
+  cuadrado.addEventListener("click", () => {
+    actualizarContador(cuadrado)
+  })
+}
 
 // Mostrar el primer color RGB al cargar la página
 
@@ -145,3 +159,4 @@ juegoNuevoDificil();
 - Funcionalidades extra, como lo de desaparecer cuadrado
 - dificultad
 - Si el proyecto nos dice que cada vez que clickemos un cuadrado , si hay acierto o fallo los cuadrados deben generarse nuevos */
+
