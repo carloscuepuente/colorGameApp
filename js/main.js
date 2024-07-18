@@ -145,7 +145,7 @@ function actualizarContador(cuadrado) {
     console.log(aciertosElement, "Soy aciertos despues de cambiar el texto");
     //comparamos el color de cuadrado  con el color Objetivo (el correcto). Si son iguales el usuario habrá acertado.
     // Acierto
-    aciertosElement.textContent = parseInt(aciertosElement.textContent) + 1; //incrementamos de 1 punto el contador de aciertos
+    //incrementamos de 1 punto el contador de aciertos
   } else { 
     fallos += 1;
     fallosElement.textContent = `Fallos: ${fallos}`;
