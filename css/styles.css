@@ -138,9 +138,13 @@ footer {
 
 h2 {
   display: flex;
+  visibility: hidden;
   justify-content: center;
   font-size: 250%;
   font-family: "Comic Sans MS", cursive, sans-serif;
+}
+
+#botonJugarDeNuevo {
 }
 
 /* Dandole tamaño al tipo de pantalla tablet */

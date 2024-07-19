@@ -126,6 +126,7 @@ const gameReset = () => {
   // hay que reset todos los valores del dataset.color y los valores del index del array de cuadrados
   rgbElement.textContent = `Selecciona un nivel y adivina el color`;
   rgbElement.style.backgroundColor = "rgb(173, 216, 230)";
+  rgbElement.style.color = "black";
   aciertosElement.textContent = `Aciertos: `;
   fallosElement.textContent = `Fallos: `;
   levelSelector.value = "";
@@ -158,8 +159,8 @@ function actualizarContador(cuadrado) {
       if (aciertos === 3) {
         // !! ojo aqui
         // disparar la condición de que se gano
+        abrirModal("ganaste");
         console.log("ganaste");
-        gameReset();
       }
     } else {
       fallos += 1;
@@ -167,8 +168,8 @@ function actualizarContador(cuadrado) {
       if (fallos === 3) {
         // !! ojo aqui
         // disparar la condición de perder
+        abrirModal();
         console.log("perdiste");
-        gameReset();
       }
     }
   }
@@ -189,3 +190,20 @@ for (const cuadrado of cuadrados) {
 }
 
 // todo implementar el modal
+const modal = document.getElementById("aparecerModal");
+const boton = document.getElementById("botonJugarDeNuevo");
+function abrirModal(resultado) {
+  modal.style.display = "block";
+  if (resultado === "ganaste") {
+    document.getElementById("ganaste").style.visibility = "visible";
+  } else {
+    document.getElementById("perdiste").style.visibility = "visible";
+  }
+}
+
+function cerrarModal() {
+  document.getElementById("ganaste").style.visibility = "hidden";
+  document.getElementById("perdiste").style.visibility = "hidden";
+  modal.style.display = "none";
+  gameReset();
+}
