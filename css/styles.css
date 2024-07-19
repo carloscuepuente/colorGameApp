@@ -54,6 +54,7 @@ h1 {
   margin: 5px 0;
   font-size: 0.7rem;
   color: #5f9ea0; /* Color menta para los textos */
+  /* hay que hacer que este color se ponga en pantalla de forma dinámica si el color de fondo es oscuro tiene que ser claro y viceversa porque hay un problema de contrastes*/
 }
 
 #rgb {

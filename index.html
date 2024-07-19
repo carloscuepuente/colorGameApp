@@ -8,7 +8,7 @@
   </head>
   <body>
     <header>
-      <h1>¿Cuál es este color?</h1>
+      <h1>Hack a Color Game App</h1>
       <img
         src="./img/bird-kawaii.proyecto.webp"
         alt="personaje Kawaii"
@@ -17,8 +17,8 @@
       <!--Pongo un kawaii solo porque tengo envidia del otro grupo que tiene pokemon, y a nosotros nos han tocado las cajas de colores-->
     </header>
     <form>
-      <select name="nivel" id="nivel">
-        <option value="">Elige el nivel</option>
+      <select name="nivel" id="nivel" onchange="levelSelect()">
+        <option selected value="">Elige el nivel</option>
         <option value="facil">Fácil</option>
         <option value="medio">Medio</option>
         <option value="dificil">Difícil</option>
@@ -26,7 +26,7 @@
     </form>
 
     <section id="pantallaJuego">
-      <article id="rgb"></article>
+      <article id="rgb">Selecciona un nivel y adivina el color</article>
       <div id="resultados">
         <!--Este div resultados es para los aciertos y fallos-->
         <article id="aciertos">Aciertos</article>
