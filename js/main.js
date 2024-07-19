@@ -1,8 +1,5 @@
 "use strict";
 
-// bajarse la extension en VsCode Better Comments para que les aparezcan los comentarios de colores
-
-// todo Generar código RGB aleatorio
 //* Crear una función para generar un código de color RGB aleatorio
 const makeRandomColor = () => {
   const r = Math.floor(Math.random() * 256);
@@ -36,38 +33,31 @@ let aciertos = 0;
 let fallos = 0;
 const levelSelector = document.getElementById("nivel"); //selecciona le select del html
 
-// funciones con la lógica de la dificultad del juego
+// * funciones con la lógica de la dificultad del juego
 const juegoNuevoFacil = () => {
-  gameReset();
+  removeDataCuadrados();
   // creamos el color objetivo que queremos adivinar
   let colorObjetivo = makeRandomColor();
-
   const [rgb, r, g, b] = colorObjetivo.match(/^rgb\((\d+),(\d+),(\d+)\)$/);
-  if (parseInt(r) + parseInt(g) + parseInt(b) > 100) {
-    console.log(rgbElement.textContent);
+  if (parseInt(r) + parseInt(g) + parseInt(b) > 380) {
     rgbElement.style.color = "black";
   } else {
     rgbElement.style.color = "rgb(240, 241, 245)";
   }
-
   // lo ponemos en el texto del html
   rgbElement.textContent = `${colorObjetivo.toUpperCase()}`;
   // le cambiamos el color de fondo al elemento html del elemento
   rgbElement.style.backgroundColor = colorObjetivo;
-
   // a los cuadrados le vamos a asignar a uno el color correcto y al resto colores generados por la función de crear una paleta de colores parecida
   let cuadradoCorrecto =
     cuadrados[Math.floor(Math.random() * cuadrados.length)];
-
   cuadradoCorrecto.dataset.color = colorObjetivo;
-
   for (const cuadrado of cuadrados) {
+    cuadrado.addEventListener("click", handleClickJuegoNuevo);
     if (cuadrado.dataset.color) {
       cuadrado.style.backgroundColor = colorObjetivo;
     } else {
-      // console.log("corrí");
       cuadrado.style.backgroundColor = makeAPalleteOfRandomColor(colorObjetivo);
-      // cuadrado.style.backgroundColor = makeRandomColor();
     }
   }
 };
@@ -80,48 +70,36 @@ const handleClickJuegoNuevo = (event) => {
 };
 
 const juegoNuevoMedio = () => {
-  gameReset();
-  // creamos el color objetivo que queremos adivinar
+  removeDataCuadrados();
   const colorObjetivo = makeRandomColor();
-  // lo ponemos en el texto del html
   rgbElement.textContent = `${colorObjetivo.toUpperCase()}`;
-
-  // le cambiamos el color de fondo al elemento html del elemento
-  // rgbElement.style.backgroundColor = colorObjetivo;
-
-  // a los cuadrados le vamos a asignar a uno el color correcto y al resto colores generados por la función de crear una paleta de colores parecida
   let cuadradoCorrecto =
     cuadrados[Math.floor(Math.random() * cuadrados.length)];
-
   cuadradoCorrecto.dataset.color = colorObjetivo;
-
+  rgbElement.style.backgroundColor = "#f0f0f0";
+  rgbElement.style.color = "#5f9ea0";
   for (const cuadrado of cuadrados) {
     cuadrado.addEventListener("click", handleClickJuegoNuevo);
-
     if (cuadrado.dataset.color) {
       cuadrado.style.backgroundColor = colorObjetivo;
     } else {
-      // cuadrado.style.backgroundColor = makeAPalleteOfRandomColor(colorObjetivo);
       cuadrado.style.backgroundColor = makeRandomColor();
     }
   }
 };
 
 const juegoNuevoDificil = () => {
-  gameReset();
+  removeDataCuadrados();
   // creamos el color objetivo que queremos adivinar
   const colorObjetivo = makeRandomColor();
-  console.log("soy el color objetivo", colorObjetivo);
-
   // lo ponemos en el texto del html
   rgbElement.textContent = `${colorObjetivo.toUpperCase()}`;
-
   // a los cuadrados le vamos a asignar a uno el color correcto y al resto colores generados por la función de crear una paleta de colores parecida
   let cuadradoCorrecto =
     cuadrados[Math.floor(Math.random() * cuadrados.length)];
-
   cuadradoCorrecto.dataset.color = colorObjetivo;
-
+  rgbElement.style.backgroundColor = "#f0f0f0";
+  rgbElement.style.color = "#5f9ea0";
   for (const cuadrado of cuadrados) {
     if (cuadrado.dataset.color) {
       cuadrado.style.backgroundColor = colorObjetivo;
@@ -150,77 +128,56 @@ const gameReset = () => {
   rgbElement.style.backgroundColor = "rgb(173, 216, 230)";
   aciertosElement.textContent = `Aciertos: `;
   fallosElement.textContent = `Fallos: `;
+  levelSelector.value = "";
+  aciertos = 0;
+  fallos = 0;
+  for (const cuadrado of cuadrados) {
+    removeDataCuadrados();
+    cuadrado.style.backgroundColor = makeRandomColor();
+  }
+};
+
+const removeDataCuadrados = () => {
   for (const cuadrado of cuadrados) {
     cuadrado.removeAttribute("data-color");
-    cuadrado.style.backgroundColor = makeRandomColor();
     cuadrado.style.visibility = "visible";
     cuadrado.removeEventListener("click", handleClickJuegoNuevo);
   }
-
-  // todo reset los contadores también
 };
 
 //Función para verificar si el color del cuadrado coincide con el objetivo cuando el usuario hace click y actualizar el contador
 function actualizarContador(cuadrado) {
-  const colorCuadrado = cuadrado.dataset.color; //color cuadrado correcto
-  if (colorCuadrado) {
-    aciertos += 1;
-    aciertosElement.textContent = `Aciertos: ${aciertos}`;
-    // correr la función de generar nuevos cuadros de colores
-    function generarNuevosCuadros() {
-      const colorObjetivo = makeRandomColor(); //generar un color RGB aleatorio
-      rgbElement.textContent = `${colorObjetivo.toUpperCase()}`; //actualizar el texto del ID "rgb" 
-      rgbElement.style.backgroundColor = colorObjetivo; //actualizar el color del ID "rgb"
-    
-      //Elegir un cuadrado aleatorio para que sea el cuadrado correcto que el usuario tiene que adivinar 
-      let cuadradoCorrecto = cuadrados[Math.floor(Math.random() * cuadrados.length)];
-      //Asignar el color objetivo al cuadrado correcto
-      cuadradoCorrecto.dataset.color = colorObjetivo;
-
-      //Iterar sobre todos los cuadrados
-      for (const cuadrado of cuadrados) {
-        cuadrado.dataset.color = ''; // Limpiar el dataset.color de todos los cuadrados
-         // Si el cuadrado actual es el cuadrado correcto, asignar el color objetivo y actualizar su color 
-        if (cuadrado === cuadradoCorrecto) {
-          cuadrado.dataset.color = colorObjetivo;
-          cuadrado.style.backgroundColor = colorObjetivo;
-        } else {
-          // Si el cuadrado no es el cuadrado correcto, asignar un color aleatorio similar al color objetivo
-          cuadrado.style.backgroundColor = makeAPalleteOfRandomColor(colorObjetivo);
-        }
+  if (levelSelector.value !== "") {
+    const colorCuadrado = cuadrado.dataset.color; //color cuadrado correcto
+    if (colorCuadrado) {
+      aciertos += 1;
+      aciertosElement.textContent = `Aciertos: ${aciertos}`;
+      levelSelect();
+      // función para generar nuevos cuadros
+      // generarNuevosCuadros();
+      if (aciertos === 3) {
+        // !! ojo aqui
+        // disparar la condición de que se gano
+        console.log("ganaste");
+        gameReset();
+      }
+    } else {
+      fallos += 1;
+      fallosElement.textContent = `Fallos: ${fallos}`;
+      if (fallos === 3) {
+        // !! ojo aqui
+        // disparar la condición de perder
+        console.log("perdiste");
+        gameReset();
       }
     }
-
-    // Asignar evento de clic a cada cuadrado
-for (const cuadrado of cuadrados) { //Itera sobre cada elemento "cuadrados"
-  cuadrado.addEventListener("click", () => {
-    // Agrega un "event listener" de clic a cada cuadrado
-    // Cuando se hace clic en un cuadrado, se llama a la función 'actualizarContador'
-    // Pasando el cuadrado clicado como argumento
-    actualizarContador(cuadrado);
-  });
+  }
 }
 
-// Mostrar el primer color RGB al cargar la página
-generarNuevosCuadros();
-// Llama a la función 'generarNuevosCuadros' para actualizar el juego
-// Esta función nos da el color objetivo y actualiza los colores de los cuadrados
-
-
-    if (aciertos === 3) {
-      // disparar la condición de que se gano
-      console.log("ganaste");
-      gameReset();
-    }
-  } else {
-    fallos += 1;
-    fallosElement.textContent = `Fallos: ${fallos}`;
-    if (fallos === 3) {
-      // disparar la condición de perder
-      console.log("perdiste");
-      gameReset();
-    }
-  }
+function generarNuevosCuadros(cuadrado) {
+  // al cargar la pagina le da colorines a los cuadrados
+  let colorIni = makeRandomColor();
+  cuadrado.style.backgroundColor = colorIni;
 }
 
 // Asignar evento de clic a cada cuadrado
@@ -228,6 +185,7 @@ for (const cuadrado of cuadrados) {
   cuadrado.addEventListener("click", () => {
     actualizarContador(cuadrado);
   });
+  generarNuevosCuadros(cuadrado);
 }
 
 // todo implementar el modal
