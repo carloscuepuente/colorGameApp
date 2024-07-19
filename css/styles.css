@@ -147,6 +147,259 @@ h2 {
 #botonJugarDeNuevo {
 }
 
-/* Dandole tamaño al tipo de pantalla tablet */
-@media screen and (min-width: ) {
+/* Por favor revisar esta linea:  */
+/* Dandole tamaño al tipo de pantalla tablet  @media screen and (min-width: 20px;) {  } */
+
+ 
+
+/* Media Query para pantallas de 768px o menos (Tablets en modo retrato y algunos dispositivos pequeños en modo paisaje.) */
+@media (max-width: 768px) {
+  body {
+    font-size: 1.2rem; /* Ajustar tamaño de fuente para pantallas más grandes */
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    margin: 0; /* Asegurar que no haya márgenes externos */
+  }
+
+  header {
+    margin: 10px 0; /* Ajustar el margen del header */
+  }
+
+  h1 {
+    font-size: 2.2rem; /* Tamaño más grande del título */
+    margin-bottom: 15px; /* Margen para el título */
+  }
+
+  #pantallaJuego {
+    height: auto; /* Ajustar la altura */
+    flex-grow: 1; /* Permitir que el contenido crezca para empujar el footer hacia abajo */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #pantallaJuego article {
+    font-size: 1rem; /* Ajustar el tamaño de la fuente en el article */
+  }
+
+  #rgb {
+    font-size: 1.2rem; /* Ajustar la fuente del rgb */
+    padding: 6px 18px; /* Ajustar el padding del elemento rgb */
+  }
+
+  #resultados {
+    flex-direction: row; /* Dirección en fila */
+    justify-content: space-between; /* Justificación para distribuir los elementos */
+    align-items: center; /* Alinear elementos en el centro */
+    width: 100%; /* El contenedor debe ocupar el ancho completo */
+  }
+
+  #aciertos, #fallos {
+    font-size: 2rem; /* Ajustar el tamaño de la fuente para los aciertos y fallos */
+    margin: 10px; /* Añadir un pequeño margen */
+  }
+
+  #pantallaColores {
+    flex-grow: 2; /* Aumenta la altura del contenedor de colores si es necesario */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin: 20px 0;
+  }
+
+  .cuadrado {
+    width: 200px; /* Ajustar el ancho de los cuadrados para mantener 3 por fila */
+    height: 200px;
+    margin: 1%; /* Ajustar el margen entre los cuadrados */
+    box-sizing: border-box; /* Incluir padding y borde en las dimensiones del elemento */
+  }
+
+  footer {
+    font-size: 0.6rem; /* Ajustar el tamaño de la fuente del footer */
+    margin: 0px 40px; /* Reducir el margen del footer para mantenerlo al final */
+    text-align: center; /* Centrar el texto del footer */
+    width: 100%; /* Asegurar que el footer ocupe el ancho completo */
+    position: relative; /* Mantener el footer en el flujo del documento */
+  }
+}
+
+
+/* Media Query para pantallas de 600px o menos (tabletas pequeñas en modo retrato) */
+@media (max-width: 600px) {
+  body {
+    font-size: 1rem; /* Ajustar el tamaño de la fuente para mejorar la legibilidad en tablets */
+  }
+
+  header {
+    margin: 8px 0; /* Más margen en el header para una separación visual adecuada */
+  }
+
+  h1 {
+    font-size: 2rem; /* Tamaño de fuente del título más grande para aprovechar el espacio */
+    margin-bottom: 10px; /* Aumentar el margen debajo del título para mejor separación */
+  }
+
+  #pantallaJuego {
+    height: auto; /* Ajustar la altura */
+  }
+
+  #pantallaJuego article {
+    font-size: 0.9rem; /* Aumentar el tamaño de la fuente en el article */
+  }
+
+  #rgb {
+    font-size: 1rem; /* Aumentar el tamaño de la fuente del rgb */
+    padding: 5px 15px; /* Aumentar el padding del elemento rgb */
+  }
+
+  #resultados {
+    flex-direction: row; /* Mantener la dirección en fila para tablets */
+    justify-content: space-between; /* Distribuir espacio entre los elementos */
+    align-items: center; /* Alinear elementos en el centro */
+    width: 100%; /* Mantener el contenedor a 100% de ancho */
+  }
+
+  #aciertos, #fallos {
+    font-size: 1.8rem; /* Tamaño de fuente adecuado para aciertos y fallos */
+    margin: 10px; /* Añadir margen adicional para evitar que se peguen al borde */
+  }
+
+  #pantallaColores {
+    width: 100%; /* Asegurar que el contenedor ocupe el ancho completo */
+    display: flex;
+    flex-wrap: wrap; /* Permitir que los elementos se ajusten en varias filas */
+    justify-content: center; /* Centrar los elementos */
+  }
+
+   .cuadrado {
+    width: 30%; /* Ajustar el ancho de los cuadrados para mantener 3 por fila*/
+    padding-bottom: 30%; /* Mantener la proporción de los cuadrados*/
+    margin: 1%; /* Ajustar el margen para que los cuadrados se alineen correctamente*/
+    box-sizing: border-box; /* Incluir padding y borde en el ancho del elemento*/ 
+  }
+  
+  footer {
+    font-size: 0.5rem; /* Tamaño de fuente del footer adecuado para tablets */
+    margin: 40px 0; /* Aumentar el margen del footer para mejor separación */
+  }
+}
+
+
+/* Media Query para pantallas de 480px o menos (dispositivos móviles pequeños en modo paisaje) */
+@media (max-width: 480px) {
+  body {
+    font-size: 0.9rem; /* Un poco más grande que en 320px, para pantallas un poco más grandes */
+  }
+
+  header {
+    margin: 5px 0; /* Un poco más de margen en el header para un mejor espaciado */
+  }
+
+  h1 {
+    font-size: 1.8rem; /* Aumentar ligeramente el tamaño del título */
+    margin-bottom: 10px; /* Un poco más de margen debajo del título */
+  }
+
+  #pantallaJuego {
+    height: auto; /* Mantener el ajuste automático de la altura */
+  }
+
+  #pantallaJuego article {
+    font-size: 0.7rem; /* Aumentar ligeramente el tamaño de la fuente en el article */
+  }
+
+  #rgb {
+    font-size: 0.9rem; /* Aumentar un poco el tamaño de la fuente del rgb */
+    padding: 3px 12px; /* Aumentar ligeramente el padding del elemento rgb */
+  }
+
+  #resultados {
+    flex-direction: row; /* Dirección en fila */
+    justify-content: space-between; /* Distribuir espacio entre los elementos */
+    align-items: center; /* Alinear elementos en el centro */
+    width: 100%; /* El contenedor debe ocupar el ancho completo */
+  }
+
+  #aciertos, #fallos {
+    font-size: 1.7rem; /* Ajustar el tamaño de la fuente para los aciertos y fallos */
+    margin: 8px; /* Añadir un pequeño margen */
+  }
+
+  #pantallaColores {
+    width: 100%; /* Mantener el ancho al 100% */
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .cuadrado {
+    width: 30%; /* Ajustar el ancho de los cuadrados para un diseño más ajustado en pantallas de 480px */
+    height: auto; /* Mantener la altura automática */
+    margin: 1%; /* Aumentar el margen entre los cuadrados */
+  }
+
+  footer {
+    font-size: 0.5rem; /* Aumentar ligeramente el tamaño de la fuente del footer */
+    margin: 35px 0; /* Aumentar el margen del footer */
+  }
+}
+
+
+/* Dando a la app el tamaño para tipo de pantalla movil de 320px: dispositivos móviles pequeños en modo retrato. */ 
+/* Media Query para pantallas de 320px o menos*/
+@media (max-width: 320px) {
+  body {
+    font-size: 0.8rem;  /*Reducir el tamaño de la fuente para dispositivos más pequeños*/
+  }
+
+  header {
+    margin: 3px 0; /*Reducir el margen del header*/
+  }
+
+  h1 {
+    font-size: 1.5rem; /*Reducir el tamaño del título*/
+    margin-bottom: 5px; /*Reducir el margen del tíyulo*/
+  }
+
+  #pantallaJuego {
+    height: auto; /*Ajustar la altura*/
+  }
+
+  #pantallaJuego article {
+    font-size: 0.6rem; /*Reducir el tamaño de la fuente en el article*/
+  }
+
+  #rgb {
+    font-size: 0.8rem; /*Reducir la fuente del rgb*/
+    padding: 2px 10px; /*Reducir el padding del elemento rgb*/
+  }
+
+  #resultados {
+    flex-direction: row; /* Cambiar la dirección a fila */
+    justify-content: space-between; /* Distribuir espacio entre los elementos */
+    align-items: center; /* Alinear elementos en el centro */
+    width: 100%; /* El contenedor tiene que ocupar el ancho completo */
+  }
+
+  #aciertos, #fallos {
+    font-size: 1.5rem; /* Reducir el tamaño de la fuente para los aciertos y fallos"*/
+    margin: 5px; /* Añadir un pequeño margen para evitar que los elementos se peguen al borde */
+  }
+
+  #pantallaColores {
+  width: 100%; /*Ajustar el ancho al 100%*/
+  }
+
+  .cuadrado {
+    width: 30%; /* Ajustar el ancho de los cuadrados para pantallas pequeñas */
+    height: auto; /* Ajustar la altura automáticamente */
+    margin: 1%; /* Reducir el margen entre los cuadrados */
+  }
+
+  footer {
+    font-size: 0.4rem; /* Reducir el tamaño de la fuente del footer */
+    margin: 30px 0; /* Reducir el margen del footer */
+  }
+
 }
