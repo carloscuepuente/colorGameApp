@@ -167,6 +167,45 @@ function actualizarContador(cuadrado) {
     aciertos += 1;
     aciertosElement.textContent = `Aciertos: ${aciertos}`;
     // correr la función de generar nuevos cuadros de colores
+    function generarNuevosCuadros() {
+      const colorObjetivo = makeRandomColor(); //generar un color RGB aleatorio
+      rgbElement.textContent = `${colorObjetivo.toUpperCase()}`; //actualizar el texto del ID "rgb" 
+      rgbElement.style.backgroundColor = colorObjetivo; //actualizar el color del ID "rgb"
+    
+      //Elegir un cuadrado aleatorio para que sea el cuadrado correcto que el usuario tiene que adivinar 
+      let cuadradoCorrecto = cuadrados[Math.floor(Math.random() * cuadrados.length)];
+      //Asignar el color objetivo al cuadrado correcto
+      cuadradoCorrecto.dataset.color = colorObjetivo;
+
+      //Iterar sobre todos los cuadrados
+      for (const cuadrado of cuadrados) {
+        cuadrado.dataset.color = ''; // Limpiar el dataset.color de todos los cuadrados
+         // Si el cuadrado actual es el cuadrado correcto, asignar el color objetivo y actualizar su color 
+        if (cuadrado === cuadradoCorrecto) {
+          cuadrado.dataset.color = colorObjetivo;
+          cuadrado.style.backgroundColor = colorObjetivo;
+        } else {
+          // Si el cuadrado no es el cuadrado correcto, asignar un color aleatorio similar al color objetivo
+          cuadrado.style.backgroundColor = makeAPalleteOfRandomColor(colorObjetivo);
+        }
+      }
+    }
+
+    // Asignar evento de clic a cada cuadrado
+for (const cuadrado of cuadrados) { //Itera sobre cada elemento "cuadrados"
+  cuadrado.addEventListener("click", () => {
+    // Agrega un "event listener" de clic a cada cuadrado
+    // Cuando se hace clic en un cuadrado, se llama a la función 'actualizarContador'
+    // Pasando el cuadrado clicado como argumento
+    actualizarContador(cuadrado);
+  });
+}
+
+// Mostrar el primer color RGB al cargar la página
+generarNuevosCuadros();
+// Llama a la función 'generarNuevosCuadros' para actualizar el juego
+// Esta función nos da el color objetivo y actualiza los colores de los cuadrados
+
 
     if (aciertos === 3) {
       // disparar la condición de que se gano
