@@ -150,6 +150,255 @@ h2 {
 /* Por favor revisar esta linea:  */
 /* Dandole tamaño al tipo de pantalla tablet  @media screen and (min-width: 20px;) {  } */
 
+/* Media Query para pantallas 2560px: Monitores de alta gama y pantallas 4K.) */
+@media (max-width: 2560px) {
+  body {
+    font-size: 10rem;
+  }
+
+  header {
+    margin: 0.5px 2px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin: 30px;
+    margin-bottom: 5px;
+  }
+
+  #pantallaJuego {
+    height: auto;
+  }
+
+  #pantallaJuego article {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  #rgb {
+    font-size: 0.8rem;
+    padding: 2px 10px;
+  }
+
+  #resultados {
+    align-items: center;
+    width: 100vw;
+    gap: 20px;
+  }
+
+  #pantallaColores {
+    width: 50vw;
+    height: 40vh;
+  }
+
+  .cuadrado {
+    width: 175px;
+    height: 175px;
+    margin: 1%;
+  }
+
+  footer {
+    font-size: 20px;
+    margin: 30px 0;
+  }
+
+  .kawaii-character {
+    width: 200px;
+    height: 200px;
+  }
+
+  form {
+    width: 15vw;
+  }
+}
+
+/* Media Query para pantallas 1920px: Monitores grandes y pantallas de alta resolución.) */
+@media (max-width: 1920px) {
+  body {
+    font-size: 10rem;
+  }
+
+  header {
+    margin: 0.5px 2px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin: 30px;
+    margin-bottom: 5px;
+  }
+
+  #pantallaJuego {
+    height: auto;
+  }
+
+  #pantallaJuego article {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  #rgb {
+    font-size: 0.8rem;
+    padding: 2px 10px;
+  }
+
+  #resultados {
+    align-items: center;
+    width: 100vw;
+    gap: 20px;
+  }
+
+  #pantallaColores {
+    width: 50vw;
+    height: 40vh;
+  }
+
+  .cuadrado {
+    width: 175px;
+    height: 175px;
+    margin: 1%;
+  }
+
+  footer {
+    font-size: 30px;
+    margin: 30px 0;
+  }
+
+  .kawaii-character {
+    width: 200px;
+    height: 200px;
+  }
+
+  form {
+    width: 15vw;
+  }
+}
+
+/* Media Query para pantallas 1440px: Monitores de tamaño medio.) */
+@media (max-width: 1440px) {
+  body {
+    font-size: 10rem;
+  }
+
+  header {
+    margin: 0.5px 2px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin: 10px;
+    margin-bottom: 5px;
+  }
+
+  #pantallaJuego {
+    height: auto;
+  }
+
+  #pantallaJuego article {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  #rgb {
+    font-size: 0.8rem;
+    padding: 2px 10px;
+  }
+
+  #resultados {
+    align-items: center;
+    width: 100vw;
+    gap: 20px;
+  }
+
+  #pantallaColores {
+    width: 50vw;
+    height: 40vh;
+  }
+
+  .cuadrado {
+    width: 175px;
+    height: 175px;
+    margin: 1%;
+  }
+
+  footer {
+    font-size: 20px;
+    margin: 30px 0;
+  }
+
+  .kawaii-character {
+    width: 200px;
+    height: 200px;
+  }
+
+  form {
+    width: 17vw;
+  }
+}
+
+/* Media Query para pantallas de 1280px o más (portátiles y pantallas más grandes) */
+@media (max-width: 1280px) {
+  body {
+    font-size: 10rem;
+  }
+
+  header {
+    margin: 0.5px 2px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+
+  #pantallaJuego {
+    height: auto;
+  }
+
+  #pantallaJuego article {
+    font-size: 20px;
+  }
+
+  #rgb {
+    font-size: 0.8rem;
+    padding: 2px 10px;
+  }
+
+  #resultados {
+    width: 100vw;
+    gap: 10px;
+  }
+
+  #pantallaColores {
+    width: 50vw;
+    height: 40vh;
+    margin: 0px 0;
+  }
+
+  .cuadrado {
+    width: 25px;
+    height: 25px;
+    margin: 1%;
+  }
+
+  footer {
+    font-size: 20px;
+    margin: 30px 0;
+  }
+
+  .kawaii-character {
+    width: 200px;
+    height: 200px;
+  }
+
+  form {
+    width: 15vw;
+  }
+}
+
 /* Media Query para pantallas de 768px o menos (Tablets en modo retrato y algunos dispositivos pequeños en modo paisaje.) */
 @media (max-width: 768px) {
   body {
@@ -399,256 +648,5 @@ h2 {
   footer {
     font-size: 0.4rem; /* Reducir el tamaño de la fuente del footer */
     margin: 30px 0; /* Reducir el margen del footer */
-  }
-}
-
-/* Media Query para pantallas de 1280px o más (portátiles y pantallas más grandes) */
-@media (max-width: 1280px) {
-  body {
-    font-size: 10rem;
-  }
-
-  header {
-    margin: 0.5px 2px;
-  }
-
-  h1 {
-    font-size: 2rem;
-    margin-bottom: 5px;
-  }
-
-  #pantallaJuego {
-    height: auto;
-  }
-
-  #pantallaJuego article {
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-  }
-
-  #rgb {
-    font-size: 0.8rem;
-    padding: 2px 10px;
-  }
-
-  #resultados {
-    align-items: center;
-    width: 100vw;
-    gap: 20px;
-  }
-
-  #pantallaColores {
-    width: 50vw;
-    height: 40vh;
-  }
-
-  .cuadrado {
-    width: 175px;
-    height: 175px;
-    margin: 1%;
-  }
-
-  footer {
-    font-size: 20px;
-    margin: 30px 0;
-  }
-
-  .kawaii-character {
-    width: 200px;
-    height: 200px;
-  }
-
-  form {
-    width: 15vw;
-  }
-}
-
-/* Media Query para pantallas 1440px: Monitores de tamaño medio.) */
-@media (max-width: 1440px) {
-  body {
-    font-size: 10rem;
-  }
-
-  header {
-    margin: 0.5px 2px;
-  }
-
-  h1 {
-    font-size: 2rem;
-    margin: 10px;
-    margin-bottom: 5px;
-  }
-
-  #pantallaJuego {
-    height: auto;
-  }
-
-  #pantallaJuego article {
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-  }
-
-  #rgb {
-    font-size: 0.8rem;
-    padding: 2px 10px;
-  }
-
-  #resultados {
-    align-items: center;
-    width: 100vw;
-    gap: 20px;
-  }
-
-  #pantallaColores {
-    width: 50vw;
-    height: 40vh;
-  }
-
-  .cuadrado {
-    width: 175px;
-    height: 175px;
-    margin: 1%;
-  }
-
-  footer {
-    font-size: 20px;
-    margin: 30px 0;
-  }
-
-  .kawaii-character {
-    width: 200px;
-    height: 200px;
-  }
-
-  form {
-    width: 17vw;
-  }
-}
-
-/* Media Query para pantallas 1920px: Monitores grandes y pantallas de alta resolución.) */
-@media (max-width: 1920px) {
-  body {
-    font-size: 10rem;
-  }
-
-  header {
-    margin: 0.5px 2px;
-  }
-
-  h1 {
-    font-size: 2rem;
-    margin: 30px;
-    margin-bottom: 5px;
-  }
-
-  #pantallaJuego {
-    height: auto;
-  }
-
-  #pantallaJuego article {
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-  }
-
-  #rgb {
-    font-size: 0.8rem;
-    padding: 2px 10px;
-  }
-
-  #resultados {
-    align-items: center;
-    width: 100vw;
-    gap: 20px;
-  }
-
-  #pantallaColores {
-    width: 50vw;
-    height: 40vh;
-  }
-
-  .cuadrado {
-    width: 175px;
-    height: 175px;
-    margin: 1%;
-  }
-
-  footer {
-    font-size: 30px;
-    margin: 30px 0;
-  }
-
-  .kawaii-character {
-    width: 200px;
-    height: 200px;
-  }
-
-  form {
-    width: 15vw;
-  }
-}
-
-/* Media Query para pantallas 2560px: Monitores de alta gama y pantallas 4K.) */
-@media (max-width: 2560px) {
-  body {
-    font-size: 10rem;
-  }
-
-  header {
-    margin: 0.5px 2px;
-  }
-
-  h1 {
-    font-size: 2rem;
-    margin: 30px;
-    margin-bottom: 5px;
-  }
-
-  #pantallaJuego {
-    height: auto;
-  }
-
-  #pantallaJuego article {
-    font-size: 20px;
-    display: flex;
-    align-items: center;
-  }
-
-  #rgb {
-    font-size: 0.8rem;
-    padding: 2px 10px;
-  }
-
-  #resultados {
-    align-items: center;
-    width: 100vw;
-    gap: 20px;
-  }
-
-  #pantallaColores {
-    width: 50vw;
-    height: 40vh;
-  }
-
-  .cuadrado {
-    width: 175px;
-    height: 175px;
-    margin: 1%;
-  }
-
-  footer {
-    font-size: 20px;
-    margin: 30px 0;
-  }
-
-  .kawaii-character {
-    width: 200px;
-    height: 200px;
-  }
-
-  form {
-    width: 15vw;
   }
 }
