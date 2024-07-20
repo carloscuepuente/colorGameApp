@@ -188,28 +188,19 @@ h2 {
   }
 
   #pantallaColores {
-    width: 50vw;
-    height: 40vh;
+    width: 80vw;
+    height: 80vh;
   }
 
   .cuadrado {
-    width: 175px;
-    height: 175px;
+    width: 200px;
+    height: 200px;
     margin: 1%;
   }
 
   footer {
     font-size: 20px;
     margin: 30px 0;
-  }
-
-  .kawaii-character {
-    width: 200px;
-    height: 200px;
-  }
-
-  form {
-    width: 15vw;
   }
 }
 
@@ -250,29 +241,31 @@ h2 {
     gap: 20px;
   }
 
+  #resultados article {
+    font-size: 1.5rem;
+  }
+
+  /* select {
+    height: 1.5rem;
+    width: 11rem;
+    font-size: 1rem;
+  } */
+
   #pantallaColores {
-    width: 50vw;
+    width: 40vw;
     height: 40vh;
+    margin-bottom: 3rem;
   }
 
   .cuadrado {
-    width: 175px;
-    height: 175px;
+    width: 200px;
+    height: 200px;
     margin: 1%;
   }
 
   footer {
     font-size: 30px;
     margin: 30px 0;
-  }
-
-  .kawaii-character {
-    width: 200px;
-    height: 200px;
-  }
-
-  form {
-    width: 15vw;
   }
 }
 
@@ -314,28 +307,19 @@ h2 {
   }
 
   #pantallaColores {
-    width: 50vw;
-    height: 40vh;
+    width: 55vw;
+    height: 45vh;
   }
 
   .cuadrado {
-    width: 175px;
-    height: 175px;
+    width: 180px;
+    height: 185px;
     margin: 1%;
   }
 
   footer {
     font-size: 20px;
     margin: 30px 0;
-  }
-
-  .kawaii-character {
-    width: 200px;
-    height: 200px;
-  }
-
-  form {
-    width: 17vw;
   }
 }
 
@@ -373,29 +357,20 @@ h2 {
   }
 
   #pantallaColores {
-    width: 50vw;
-    height: 40vh;
+    width: 60vw;
+    height: 50vh;
     margin: 0px 0;
   }
 
   .cuadrado {
-    width: 25px;
-    height: 25px;
+    width: 175px;
+    height: 175px;
     margin: 1%;
   }
 
   footer {
     font-size: 20px;
     margin: 30px 0;
-  }
-
-  .kawaii-character {
-    width: 200px;
-    height: 200px;
-  }
-
-  form {
-    width: 15vw;
   }
 }
 
@@ -420,10 +395,6 @@ h2 {
 
   #pantallaJuego {
     height: auto; /* Ajustar la altura */
-    flex-grow: 1; /* Permitir que el contenido crezca para empujar el footer hacia abajo */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
   }
 
   #pantallaJuego article {
@@ -449,18 +420,15 @@ h2 {
   }
 
   #pantallaColores {
-    flex-grow: 2; /* Aumenta la altura del contenedor de colores si es necesario */
-    display: flex;
-    flex-wrap: wrap;
-    justify-content: center;
     margin: 20px 0;
+    width: 80vw;
+    height: 50vh;
   }
 
   .cuadrado {
-    width: 200px; /* Ajustar el ancho de los cuadrados para mantener 3 por fila */
-    height: 200px;
+    width: 150px; /* Ajustar el ancho de los cuadrados para mantener 3 por fila */
+    height: 150px;
     margin: 1%; /* Ajustar el margen entre los cuadrados */
-    box-sizing: border-box; /* Incluir padding y borde en las dimensiones del elemento */
   }
 
   footer {
@@ -514,17 +482,16 @@ h2 {
   }
 
   #pantallaColores {
-    width: 100%; /* Asegurar que el contenedor ocupe el ancho completo */
-    display: flex;
-    flex-wrap: wrap; /* Permitir que los elementos se ajusten en varias filas */
-    justify-content: center; /* Centrar los elementos */
+    width: 80%; /* Asegurar que el contenedor ocupe el ancho completo */
+    margin: 10px 0;
   }
 
   .cuadrado {
-    width: 30%; /* Ajustar el ancho de los cuadrados para mantener 3 por fila*/
-    padding-bottom: 30%; /* Mantener la proporción de los cuadrados*/
-    margin: 1%; /* Ajustar el margen para que los cuadrados se alineen correctamente*/
-    box-sizing: border-box; /* Incluir padding y borde en el ancho del elemento*/
+    /* width: 125px; */
+    height: 125px;
+    width: 30%;
+
+    /* margin: 1%;  */
   }
 
   footer {
@@ -546,6 +513,11 @@ h2 {
   h1 {
     font-size: 1.8rem; /* Aumentar ligeramente el tamaño del título */
     margin-bottom: 10px; /* Un poco más de margen debajo del título */
+  }
+
+  .kawaii-character {
+    width: 100px;
+    height: 100px;
   }
 
   #pantallaJuego {
@@ -582,9 +554,9 @@ h2 {
   }
 
   .cuadrado {
-    width: 30%; /* Ajustar el ancho de los cuadrados para un diseño más ajustado en pantallas de 480px */
-    height: auto; /* Mantener la altura automática */
-    margin: 1%; /* Aumentar el margen entre los cuadrados */
+    width: 100px; /* Ajustar el ancho de los cuadrados para un diseño más ajustado en pantallas de 480px */
+    height: 100px; /* Mantener la altura automática */
+    /* margin: 1%; Aumentar el margen entre los cuadrados */
   }
 
   footer {
@@ -606,7 +578,7 @@ h2 {
 
   h1 {
     font-size: 1.5rem; /*Reducir el tamaño del título*/
-    margin-bottom: 5px; /*Reducir el margen del tíyulo*/
+    margin-bottom: 1px; /*Reducir el margen del tíyulo*/
   }
 
   #pantallaJuego {
