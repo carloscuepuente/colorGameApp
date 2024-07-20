@@ -150,8 +150,6 @@ h2 {
 /* Por favor revisar esta linea:  */
 /* Dandole tamaño al tipo de pantalla tablet  @media screen and (min-width: 20px;) {  } */
 
- 
-
 /* Media Query para pantallas de 768px o menos (Tablets en modo retrato y algunos dispositivos pequeños en modo paisaje.) */
 @media (max-width: 768px) {
   body {
@@ -195,7 +193,8 @@ h2 {
     width: 100%; /* El contenedor debe ocupar el ancho completo */
   }
 
-  #aciertos, #fallos {
+  #aciertos,
+  #fallos {
     font-size: 2rem; /* Ajustar el tamaño de la fuente para los aciertos y fallos */
     margin: 10px; /* Añadir un pequeño margen */
   }
@@ -223,7 +222,6 @@ h2 {
     position: relative; /* Mantener el footer en el flujo del documento */
   }
 }
-
 
 /* Media Query para pantallas de 600px o menos (tabletas pequeñas en modo retrato) */
 @media (max-width: 600px) {
@@ -260,7 +258,8 @@ h2 {
     width: 100%; /* Mantener el contenedor a 100% de ancho */
   }
 
-  #aciertos, #fallos {
+  #aciertos,
+  #fallos {
     font-size: 1.8rem; /* Tamaño de fuente adecuado para aciertos y fallos */
     margin: 10px; /* Añadir margen adicional para evitar que se peguen al borde */
   }
@@ -272,19 +271,18 @@ h2 {
     justify-content: center; /* Centrar los elementos */
   }
 
-   .cuadrado {
+  .cuadrado {
     width: 30%; /* Ajustar el ancho de los cuadrados para mantener 3 por fila*/
     padding-bottom: 30%; /* Mantener la proporción de los cuadrados*/
     margin: 1%; /* Ajustar el margen para que los cuadrados se alineen correctamente*/
-    box-sizing: border-box; /* Incluir padding y borde en el ancho del elemento*/ 
+    box-sizing: border-box; /* Incluir padding y borde en el ancho del elemento*/
   }
-  
+
   footer {
     font-size: 0.5rem; /* Tamaño de fuente del footer adecuado para tablets */
     margin: 40px 0; /* Aumentar el margen del footer para mejor separación */
   }
 }
-
 
 /* Media Query para pantallas de 480px o menos (dispositivos móviles pequeños en modo paisaje) */
 @media (max-width: 480px) {
@@ -321,7 +319,8 @@ h2 {
     width: 100%; /* El contenedor debe ocupar el ancho completo */
   }
 
-  #aciertos, #fallos {
+  #aciertos,
+  #fallos {
     font-size: 1.7rem; /* Ajustar el tamaño de la fuente para los aciertos y fallos */
     margin: 8px; /* Añadir un pequeño margen */
   }
@@ -345,12 +344,11 @@ h2 {
   }
 }
 
-
-/* Dando a la app el tamaño para tipo de pantalla movil de 320px: dispositivos móviles pequeños en modo retrato. */ 
+/* Dando a la app el tamaño para tipo de pantalla movil de 320px: dispositivos móviles pequeños en modo retrato. */
 /* Media Query para pantallas de 320px o menos*/
 @media (max-width: 320px) {
   body {
-    font-size: 0.8rem;  /*Reducir el tamaño de la fuente para dispositivos más pequeños*/
+    font-size: 0.8rem; /*Reducir el tamaño de la fuente para dispositivos más pequeños*/
   }
 
   header {
@@ -382,13 +380,14 @@ h2 {
     width: 100%; /* El contenedor tiene que ocupar el ancho completo */
   }
 
-  #aciertos, #fallos {
+  #aciertos,
+  #fallos {
     font-size: 1.5rem; /* Reducir el tamaño de la fuente para los aciertos y fallos"*/
     margin: 5px; /* Añadir un pequeño margen para evitar que los elementos se peguen al borde */
   }
 
   #pantallaColores {
-  width: 100%; /*Ajustar el ancho al 100%*/
+    width: 100%; /*Ajustar el ancho al 100%*/
   }
 
   .cuadrado {
@@ -401,5 +400,255 @@ h2 {
     font-size: 0.4rem; /* Reducir el tamaño de la fuente del footer */
     margin: 30px 0; /* Reducir el margen del footer */
   }
+}
 
+/* Media Query para pantallas de 1280px o más (portátiles y pantallas más grandes) */
+@media (max-width: 1280px) {
+  body {
+    font-size: 10rem;
+  }
+
+  header {
+    margin: 0.5px 2px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin-bottom: 5px;
+  }
+
+  #pantallaJuego {
+    height: auto;
+  }
+
+  #pantallaJuego article {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  #rgb {
+    font-size: 0.8rem;
+    padding: 2px 10px;
+  }
+
+  #resultados {
+    align-items: center;
+    width: 100vw;
+    gap: 20px;
+  }
+
+  #pantallaColores {
+    width: 50vw;
+    height: 40vh;
+  }
+
+  .cuadrado {
+    width: 175px;
+    height: 175px;
+    margin: 1%;
+  }
+
+  footer {
+    font-size: 20px;
+    margin: 30px 0;
+  }
+
+  .kawaii-character {
+    width: 200px;
+    height: 200px;
+  }
+
+  form {
+    width: 15vw;
+  }
+}
+
+/* Media Query para pantallas 1440px: Monitores de tamaño medio.) */
+@media (max-width: 1440px) {
+  body {
+    font-size: 10rem;
+  }
+
+  header {
+    margin: 0.5px 2px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin: 10px;
+    margin-bottom: 5px;
+  }
+
+  #pantallaJuego {
+    height: auto;
+  }
+
+  #pantallaJuego article {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  #rgb {
+    font-size: 0.8rem;
+    padding: 2px 10px;
+  }
+
+  #resultados {
+    align-items: center;
+    width: 100vw;
+    gap: 20px;
+  }
+
+  #pantallaColores {
+    width: 50vw;
+    height: 40vh;
+  }
+
+  .cuadrado {
+    width: 175px;
+    height: 175px;
+    margin: 1%;
+  }
+
+  footer {
+    font-size: 20px;
+    margin: 30px 0;
+  }
+
+  .kawaii-character {
+    width: 200px;
+    height: 200px;
+  }
+
+  form {
+    width: 17vw;
+  }
+}
+
+/* Media Query para pantallas 1920px: Monitores grandes y pantallas de alta resolución.) */
+@media (max-width: 1920px) {
+  body {
+    font-size: 10rem;
+  }
+
+  header {
+    margin: 0.5px 2px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin: 30px;
+    margin-bottom: 5px;
+  }
+
+  #pantallaJuego {
+    height: auto;
+  }
+
+  #pantallaJuego article {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  #rgb {
+    font-size: 0.8rem;
+    padding: 2px 10px;
+  }
+
+  #resultados {
+    align-items: center;
+    width: 100vw;
+    gap: 20px;
+  }
+
+  #pantallaColores {
+    width: 50vw;
+    height: 40vh;
+  }
+
+  .cuadrado {
+    width: 175px;
+    height: 175px;
+    margin: 1%;
+  }
+
+  footer {
+    font-size: 30px;
+    margin: 30px 0;
+  }
+
+  .kawaii-character {
+    width: 200px;
+    height: 200px;
+  }
+
+  form {
+    width: 15vw;
+  }
+}
+
+/* Media Query para pantallas 2560px: Monitores de alta gama y pantallas 4K.) */
+@media (max-width: 2560px) {
+  body {
+    font-size: 10rem;
+  }
+
+  header {
+    margin: 0.5px 2px;
+  }
+
+  h1 {
+    font-size: 2rem;
+    margin: 30px;
+    margin-bottom: 5px;
+  }
+
+  #pantallaJuego {
+    height: auto;
+  }
+
+  #pantallaJuego article {
+    font-size: 20px;
+    display: flex;
+    align-items: center;
+  }
+
+  #rgb {
+    font-size: 0.8rem;
+    padding: 2px 10px;
+  }
+
+  #resultados {
+    align-items: center;
+    width: 100vw;
+    gap: 20px;
+  }
+
+  #pantallaColores {
+    width: 50vw;
+    height: 40vh;
+  }
+
+  .cuadrado {
+    width: 175px;
+    height: 175px;
+    margin: 1%;
+  }
+
+  footer {
+    font-size: 20px;
+    margin: 30px 0;
+  }
+
+  .kawaii-character {
+    width: 200px;
+    height: 200px;
+  }
+
+  form {
+    width: 15vw;
+  }
 }
